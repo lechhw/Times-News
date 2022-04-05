@@ -63,6 +63,10 @@ svg {
   color: gray;
 }
 
+.input-group {
+  display: none;
+}
+
 .search-input {
   height: 35px;
   border: 1px solid lightgray;
@@ -72,6 +76,7 @@ svg {
 
 .input-button {
   width: 50px;
+  height: 35px;
   color: #fff;
   border-radius: 4px !important;
   background-color: #567b95;
