@@ -24,14 +24,19 @@
     <div class="container">
       <header class="news-header">
         <div class="icon-button-group">
-          <button class="menu-button" type="button" aria-label="메뉴 열기 버튼">
+          <button
+            class="menu-button"
+            type="button"
+            aria-label="메뉴 열기 버튼"
+            onclick="openSidebar()"
+          >
             <i class="fa-solid fa-bars" aria-hidden="true"></i>
           </button>
           <button
             class="search-button"
             type="button"
-            onclick="toggleSearchInput()"
             aria-label="뉴스검색 버튼"
+            onclick="toggleSearchInput()"
           >
             <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
           </button>
@@ -95,11 +100,13 @@
         </ol>
       </div>
     </div>
+
     <aside class="side-bar">
       <button
         class="close-button"
         type="button"
         aria-label="사이드메뉴 닫기 버튼"
+        onclick="closeSidebar()"
       >
         <i class="fa-solid fa-xmark" aria-hidden="true"></i>
       </button>
@@ -123,6 +130,8 @@
         <li class="side-menu-item"><a href="#">Energy</a></li>
       </ul>
     </aside>
+
+    <div class="overlay" aria-hidden="true" onclick="closeSidebar()"></div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
