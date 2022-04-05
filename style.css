@@ -94,6 +94,7 @@ svg {
   align-items: center;
   flex-wrap: wrap;
   padding-bottom: 5px;
+  margin-bottom: 0;
   border-bottom: 4px double #000;
 }
 
