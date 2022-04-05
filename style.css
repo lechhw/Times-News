@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+button,
+input {
+  border: 0;
+  background-color: transparent;
+}
+
+input:focus {
+  outline: none;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+.side-bar {
+  width: 0;
+  overflow-x: hidden;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ebebeb;
+}
+
+svg {
+  width: 430px;
+}
+
+.icon-button-group {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.menu-button {
+  display: none;
+}
+.search-button {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.search-button:hover {
+  color: gray;
+}
+
+.search-input {
+  height: 35px;
+  border: 1px solid lightgray;
+  border-radius: 4px !important;
+  margin-right: 10px;
+}
+
+.input-button {
+  width: 50px;
+  color: #fff;
+  border-radius: 4px !important;
+  background-color: #567b95;
+}
+
+.input-button:hover,
+.input-button:active {
+  opacity: 0.5;
+}
+
+.tab-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tab-item button {
+  height: 30px;
+  padding: 0 10px;
+}
+
+.tab-item button:hover {
+  color: gray;
+}
+
+.news {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  padding: 5px 0;
+  border-bottom: 1px solid #000;
+}
+
+.news-image {
+  margin-right: 5px;
+}
+
+.news-image img {
+  display: block;
+  width: 450px;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.news-content span {
+  color: gray;
+}
+
+@media screen and (max-width: 768px) {
+  .side-bar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* width: 60vw; */
+    height: 100%;
+    background-color: #ebebeb;
+    z-index: 10;
+  }
+
+  .side-bar .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 18px;
+  }
+
+  .close-button:active {
+    color: gray;
+  }
+
+  .side-menu-list {
+    margin: 0;
+  }
+
+  .side-menu-item {
+    padding: 3px 0;
+  }
+
+  .side-menu-item a {
+    width: 100%;
+    height: 100%;
+  }
+
+  .side-menu-item a:active {
+    color: gray;
+  }
+
+  .menu-button,
+  .search-button {
+    font-size: 18px;
+  }
+
+  .menu-button:active,
+  .search-button:active {
+    color: gray;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .tab-list {
+    display: none;
+  }
+
+  .news {
+    flex-direction: column;
+  }
+
+  .news .news-content {
+    margin-top: 5px;
+  }
+}
