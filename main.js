@@ -22,6 +22,7 @@ const getNews = async () => {
   news = data.articles
   totalPage = data.total_pages
   newsRender()
+  pagination()
 }
 
 const newsRender = () => {
@@ -61,6 +62,7 @@ const newsRender = () => {
 }
 
 const getLatestNews = () => {
+  page = 1 // 새로운 검색,주제 마다 페이지 1로 리셋
   url = new URL(
     'https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&page_size=10'
   )
@@ -69,6 +71,7 @@ const getLatestNews = () => {
 
 // topic 뉴스 불러오기
 const getNewsByTopic = (e) => {
+  page = 1
   let topic = e.target.textContent.toLowerCase()
 
   url = new URL(
@@ -79,6 +82,7 @@ const getNewsByTopic = (e) => {
 
 // topic 뉴스 불러오기(mobile)
 const getNewsByTopicMobile = (e) => {
+  page = 1
   let topic = e.target.textContent.toLowerCase()
   url = new URL(
     `https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&page_size=10&topic=${topic}`
@@ -88,11 +92,62 @@ const getNewsByTopicMobile = (e) => {
 
 // 검색키워드 뉴스 불러오기
 const getNewsByKeyword = () => {
+  page = 1
   let userInput = document.querySelector('.search-input').value
 
   url = new URL(
     `https://api.newscatcherapi.com/v2/search?q=${userInput}&countries=KR&page_size=10`
   )
+  getNews()
+}
+
+const pagination = () => {
+  let paginationHTML = ''
+  let pageGroup = Math.ceil(page / 5)
+  let last = pageGroup * 5
+  if (last > totalPage) {
+    last = totalPage
+  }
+  let first = last - 4 <= 0 ? 1 : last - 4
+
+  if (first >= 6) {
+    paginationHTML = `<li class="page-item" onclick="pageClick(1)">
+    <a class="page-link" href="#" aria-label="Previous">
+      <span aria-hidden="true">&lt&lt;</span>
+    </a>
+  </li>
+  <li class="page-item" onclick="pageClick(${page - 1})">
+    <a class="page-link" href="#" aria-label="Previous">
+      <span aria-hidden="true">&lt;</span>
+    </a>
+  </li>`
+  }
+
+  for (let i = first; i <= last; i++) {
+    paginationHTML += `<li class="page-item  ${
+      i == page ? 'active' : ''
+    }"><a class="page-link" href="#" onclick="pageClick(${i})">${i}</a></li>`
+  }
+
+  if (last < totalPage) {
+    paginationHTML += `<li class="page-item" onclick="pageClick(${page + 1})">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&gt;</span>
+      </a>
+    </li>
+    <li class="page-item" onclick="pageClick(${totalPage})">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&gt&gt;</span>
+      </a>
+    </li>
+    `
+  }
+
+  document.querySelector('.pagination').innerHTML = paginationHTML
+}
+
+const pageClick = (pageNum) => {
+  page = pageNum
   getNews()
 }
 
