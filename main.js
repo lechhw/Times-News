@@ -15,6 +15,7 @@ let totalPage = 0
 const getNews = async () => {
   let header = new Headers()
   header.append('x-api-key', API_KEY)
+  url.searchParams.set('page', page) // url 에 page 추가
   let response = await fetch(url, { headers: header })
   let data = await response.json()
 
@@ -84,6 +85,18 @@ const getNewsByTopicMobile = (e) => {
   )
   getNews()
 }
+
+// 검색키워드 뉴스 불러오기
+const getNewsByKeyword = () => {
+  let userInput = document.querySelector('.search-input').value
+
+  url = new URL(
+    `https://api.newscatcherapi.com/v2/search?q=${userInput}&countries=KR&page_size=10`
+  )
+  getNews()
+}
+
+searchButton.addEventListener('click', getNewsByKeyword)
 
 sidebarMenuList.forEach((menu) => {
   menu.addEventListener('click', (e) => getNewsByTopicMobile(e))
