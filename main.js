@@ -66,6 +66,33 @@ const getLatestNews = () => {
   getNews()
 }
 
+// topic 뉴스 불러오기
+const getNewsByTopic = (e) => {
+  let topic = e.target.textContent.toLowerCase()
+
+  url = new URL(
+    `https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&page_size=10&topic=${topic}`
+  )
+  getNews()
+}
+
+// topic 뉴스 불러오기(mobile)
+const getNewsByTopicMobile = (e) => {
+  let topic = e.target.textContent.toLowerCase()
+  url = new URL(
+    `https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&page_size=10&topic=${topic}`
+  )
+  getNews()
+}
+
+sidebarMenuList.forEach((menu) => {
+  menu.addEventListener('click', (e) => getNewsByTopicMobile(e))
+})
+
+menuList.forEach((menu) => {
+  menu.addEventListener('click', (e) => getNewsByTopic(e))
+})
+
 getLatestNews()
 
 const closeSidebar = () => {
