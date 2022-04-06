@@ -30,8 +30,9 @@ a {
 }
 
 .side-bar {
+  display: none;
   width: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .title {
@@ -76,7 +77,7 @@ svg {
 }
 
 .input-button {
-  width: 50px;
+  padding: 0 10px;
   height: 35px;
   color: #fff;
   border-radius: 4px !important;
@@ -110,20 +111,20 @@ svg {
 .news {
   display: flex;
   justify-content: start;
-  align-items: start;
+  align-items: center;
   padding: 5px 0;
   border-bottom: 1px solid #000;
 }
 
-.news-image {
-  margin-right: 5px;
-}
-
 .news-image img {
   display: block;
-  width: 450px;
-  max-height: 300px;
+  width: 400px;
+  max-height: 280px;
   object-fit: contain;
+}
+
+.news-content {
+  margin-left: 20px;
 }
 
 .news-content span {
@@ -198,6 +199,10 @@ svg {
     color: gray;
   }
 
+  .search-input {
+    width: 150px;
+  }
+
   .tab-list {
     display: none;
   }
@@ -208,6 +213,15 @@ svg {
     align-items: center;
   }
 
+  .news-image img {
+    width: 280px;
+    max-height: 250px;
+  }
+
+  .news-content {
+    margin: 0;
+    margin-top: 10px;
+  }
   .news .news-content {
     margin-top: 5px;
   }
