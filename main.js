@@ -13,16 +13,27 @@ let page = 1
 let totalPage = 0
 
 const getNews = async () => {
-  let header = new Headers()
-  header.append('x-api-key', API_KEY)
-  url.searchParams.set('page', page) // url 에 page 추가
-  let response = await fetch(url, { headers: header })
-  let data = await response.json()
-
-  news = data.articles
-  totalPage = data.total_pages
-  newsRender()
-  pagination()
+  try {
+    let header = new Headers()
+    header.append('x-api-key', API_KEY)
+    url.searchParams.set('page', page) // url 에 page 추가
+    let response = await fetch(url, { headers: header })
+    let data = await response.json()
+    if (response.status == 200) {
+      if (data.total_hits > 0) {
+        news = data.articles
+        totalPage = data.total_pages
+        newsRender()
+        pagination()
+      } else {
+        throw new Error('검색 내용이 없습니다.')
+      }
+    } else {
+      throw new Error(data.message)
+    }
+  } catch (error) {
+    errorRender(error.message)
+  }
 }
 
 const newsRender = () => {
@@ -59,6 +70,14 @@ const newsRender = () => {
   })
 
   document.querySelector('.news-list').innerHTML = newsHTML.join('')
+}
+
+const errorRender = (message) => {
+  document.querySelector(
+    '.news-list'
+  ).innerHTML = `<div class="alert alert-warning text-center" role="alert">
+    ${message}
+    </div>`
 }
 
 const getLatestNews = () => {
