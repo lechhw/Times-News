@@ -17,8 +17,10 @@ const getNews = async () => {
     let header = new Headers()
     header.append('x-api-key', API_KEY)
     url.searchParams.set('page', page) // url 에 page 추가
+
     let response = await fetch(url, { headers: header })
     let data = await response.json()
+
     if (response.status == 200) {
       if (data.total_hits > 0) {
         news = data.articles

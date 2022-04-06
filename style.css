@@ -1,3 +1,4 @@
+/* reset */
 * {
   margin: 0;
   box-sizing: border-box;
@@ -29,6 +30,14 @@ a {
   cursor: pointer;
   padding: 0;
 }
+
+.writer p {
+  font-size: 12px;
+  color: gray;
+  font-style: italic;
+}
+
+/* ------ */
 
 .side-bar {
   display: none;
