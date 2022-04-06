@@ -55,10 +55,12 @@ svg {
 
 .menu-button {
   display: none;
+  color: #000;
 }
 .search-button {
   font-size: 20px;
   margin-right: 10px;
+  color: #000;
 }
 
 .search-button:hover {
@@ -191,7 +193,7 @@ svg {
   .menu-button {
     display: block;
     font-size: 20px;
-    margin-right: 8px;
+    margin-right: 4px;
   }
 
   .menu-button:active,
