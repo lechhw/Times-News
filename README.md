@@ -1,6 +1,21 @@
 # Times-News
 
 NewsCatcher News API 를 이용한 뉴스 웹사이트 입니다.
+
+<br/>
+
+- Desktop
+
+<img width="1200" alt="데스크탑 버전" src="https://user-images.githubusercontent.com/99241230/164413923-a682bd9b-1658-4e4e-b4de-025cfab5d02c.png">
+
+<br/>
+
+- Mobile
+<div align=center>
+<img width="250" alt="모바일버전 첫 화면" src="https://user-images.githubusercontent.com/99241230/164415851-ffd04c93-b41d-45a4-a7db-c54ee97bd8c5.png">
+<img width="250" alt="모바일버전 사이드메뉴" src="https://user-images.githubusercontent.com/99241230/164415888-b02d5da5-990c-40e5-b9c8-3dbfe5e358c6.png">
+</div>
+<br/>
 <br/>
 
 결과물 주소 👉 https://lechhw-times-news.netlify.app
